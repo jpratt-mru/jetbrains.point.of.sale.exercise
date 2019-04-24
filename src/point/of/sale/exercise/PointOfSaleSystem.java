@@ -23,13 +23,3 @@ class PointOfSaleSystem {
 
 
 }
-
-class BarcodeToCostMap {
-	public String costFor(String barcode) {
-		if (barcode.equals("58")) {
-			return "$1.00";
-		} else {
-			return "$2.00";
-		}
-	}
-}

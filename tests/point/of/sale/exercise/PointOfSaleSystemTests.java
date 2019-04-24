@@ -26,12 +26,19 @@ class PointOfSaleSystemTests {
 	}
 
 	@Test
-	@Disabled
 	@DisplayName("a barcoded item worth 2 dollars returns '$2.00'")
 	void test03() {
 		PointOfSaleSystem poss = new PointOfSaleSystem();
 		poss.onBarcode("291");
 		assertThat(poss.isDisplaying()).isEqualTo("$2.00");
+	}
+	
+	@Test
+	@DisplayName("a barcoded item worth 3 cents returns '$0.03'")
+	void test04() {
+		PointOfSaleSystem poss = new PointOfSaleSystem();
+		poss.onBarcode("A431S");
+		assertThat(poss.isDisplaying()).isEqualTo("$0.03");
 	}
 }
 
