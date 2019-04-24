@@ -13,12 +13,12 @@ class PointOfSaleSystem {
 		lastBarcodeRead = barcode;
 	}
 
-	public String isDisplaying() {		
+	public String isDisplaying() {
 		return costForItemWithBarcode(lastBarcodeRead);
 	}
 
 	private String costForItemWithBarcode(String barcode) {
-		return barcodeToCostMap.costFor(barcode);
+		return barcodeToCostMap.contains(barcode) ? barcodeToCostMap.costFor(barcode) : "unknown item";
 	}
 
 
