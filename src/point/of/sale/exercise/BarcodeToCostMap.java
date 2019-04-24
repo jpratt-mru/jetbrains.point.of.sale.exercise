@@ -8,7 +8,12 @@ class BarcodeToCostMap {
 	
 	
 	public String costFor(String barcode) {
-		return ht.get(barcode);
+		if (!ht.containsKey(barcode)) {
+			return "unknown item";
+		} else {
+			return ht.get(barcode);
+		}
+		
 	}
 
 	public void addMapping(String barcode, String costDisplay) {

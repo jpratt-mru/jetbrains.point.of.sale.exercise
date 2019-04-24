@@ -8,17 +8,13 @@ class PointOfSaleSystem {
 	public PointOfSaleSystem(BarcodeToCostMap barcodeToCostMap) {
 		this.barcodeToCostMap = barcodeToCostMap;
 	}
-	
+
 	public void onBarcode(String barcode) {
 		lastBarcodeRead = barcode;
 	}
 
-	public String isDisplaying() {
-		if (lastBarcodeRead.isEmpty()) {
-			return "unknown item";
-		} else {
-			return costForItemWithBarcode(lastBarcodeRead);
-		}
+	public String isDisplaying() {		
+		return costForItemWithBarcode(lastBarcodeRead);
 	}
 
 	private String costForItemWithBarcode(String barcode) {

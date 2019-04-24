@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
 
 class PointOfSaleSystemTests {
 
-	private BarcodeToCostMap barcodeToCostMap;
-	PointOfSaleSystem poss;
+	private PointOfSaleSystem poss;
 	
 	@BeforeEach
 	void setUp() {
+		BarcodeToCostMap barcodeToCostMap;
 		barcodeToCostMap = new BarcodeToCostMap();
 		barcodeToCostMap.addMapping("58", "$1.00");
 		barcodeToCostMap.addMapping("291", "$2.00");
@@ -49,6 +49,13 @@ class PointOfSaleSystemTests {
 	void test04() {
 		poss.onBarcode("A431S");
 		assertThat(poss.isDisplaying()).isEqualTo("$0.03");
+	}
+	
+	@Test
+	@DisplayName("an unknown barcode returns 'unknown item'")
+	void test05() {
+		poss.onBarcode("X2948AJ");
+		assertThat(poss.isDisplaying()).isEqualTo("unknown item");
 	}
 }
 
