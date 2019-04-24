@@ -2,8 +2,13 @@ package point.of.sale.exercise;
 
 class PointOfSaleSystem {
 
+	BarcodeToCostMap barcodeToCostMap;
 	String lastBarcodeRead = "";
 
+	public PointOfSaleSystem(BarcodeToCostMap barcodeToCostMap) {
+		this.barcodeToCostMap = barcodeToCostMap;
+	}
+	
 	public void onBarcode(String barcode) {
 		lastBarcodeRead = barcode;
 	}
@@ -17,7 +22,6 @@ class PointOfSaleSystem {
 	}
 
 	private String costForItemWithBarcode(String barcode) {
-		BarcodeToCostMap barcodeToCostMap = new BarcodeToCostMap();
 		return barcodeToCostMap.costFor(barcode);
 	}
 
