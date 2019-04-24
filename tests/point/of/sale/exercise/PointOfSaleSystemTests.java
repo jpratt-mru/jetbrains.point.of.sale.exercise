@@ -1,7 +1,6 @@
 package point.of.sale.exercise;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 
 import static org.assertj.core.api.Assertions.*;
@@ -31,6 +30,13 @@ class PointOfSaleSystemTests {
 	}
 	
 	@Test
+	@DisplayName("an unknown barcode returns 'unknown item'")
+	void test05() {
+		poss.onBarcode("X2948AJ");
+		assertThat(poss.isDisplaying()).isEqualTo("unknown item");
+	}
+	
+	@Test
 	@DisplayName("a barcoded item worth 1 dollar returns '$1.00'")
 	void test02() {
 		poss.onBarcode("58");
@@ -49,13 +55,6 @@ class PointOfSaleSystemTests {
 	void test04() {
 		poss.onBarcode("A431S");
 		assertThat(poss.isDisplaying()).isEqualTo("$0.03");
-	}
-	
-	@Test
-	@DisplayName("an unknown barcode returns 'unknown item'")
-	void test05() {
-		poss.onBarcode("X2948AJ");
-		assertThat(poss.isDisplaying()).isEqualTo("unknown item");
 	}
 }
 

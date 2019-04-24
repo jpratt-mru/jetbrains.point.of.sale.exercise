@@ -20,6 +20,4 @@ class PointOfSaleSystem {
 	private String costForItemWithBarcode() {
 		return barcodeToCostMap.contains(lastBarcodeRead) ? barcodeToCostMap.costFor(lastBarcodeRead) : "unknown item";
 	}
-
-
 }
