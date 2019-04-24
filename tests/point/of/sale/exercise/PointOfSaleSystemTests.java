@@ -1,5 +1,6 @@
 package point.of.sale.exercise;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 
 import static org.assertj.core.api.Assertions.*;
@@ -24,5 +25,13 @@ class PointOfSaleSystemTests {
 		assertThat(poss.isDisplaying()).isEqualTo("$1.00");
 	}
 
+	@Test
+	@Disabled
+	@DisplayName("a barcoded item worth 2 dollars returns '$2.00'")
+	void test03() {
+		PointOfSaleSystem poss = new PointOfSaleSystem();
+		poss.onBarcode("291");
+		assertThat(poss.isDisplaying()).isEqualTo("$2.00");
+	}
 }
 
