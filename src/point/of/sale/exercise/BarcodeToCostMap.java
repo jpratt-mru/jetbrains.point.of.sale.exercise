@@ -1,11 +1,10 @@
 package point.of.sale.exercise;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
 class BarcodeToCostMap {
 	
-	Hashtable<String, String> ht = new Hashtable<>();
-	
+	HashMap<String, String> ht = new HashMap<>();
 	
 	public String costFor(String barcode) {
 		return ht.get(barcode);
