@@ -2,8 +2,8 @@ package point.of.sale.exercise;
 
 class PointOfSaleSystem {
 
-	BarcodeToCostMap barcodeToCostMap;
-	String lastBarcodeRead = "";
+	private BarcodeToCostMap barcodeToCostMap;
+	private String lastBarcodeRead = "";
 
 	public PointOfSaleSystem(BarcodeToCostMap barcodeToCostMap) {
 		this.barcodeToCostMap = barcodeToCostMap;
@@ -14,11 +14,11 @@ class PointOfSaleSystem {
 	}
 
 	public String isDisplaying() {
-		return costForItemWithBarcode(lastBarcodeRead);
+		return costForItemWithBarcode();
 	}
 
-	private String costForItemWithBarcode(String barcode) {
-		return barcodeToCostMap.contains(barcode) ? barcodeToCostMap.costFor(barcode) : "unknown item";
+	private String costForItemWithBarcode() {
+		return barcodeToCostMap.contains(lastBarcodeRead) ? barcodeToCostMap.costFor(lastBarcodeRead) : "unknown item";
 	}
 
 
