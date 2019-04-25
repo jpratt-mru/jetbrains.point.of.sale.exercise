@@ -37,6 +37,13 @@ class PointOfSaleSystemTests {
 	}
 	
 	@Test
+	@DisplayName("a null barcode doesn't explodify'")
+	void test06() {
+		poss.onBarcode(null);
+		assertThat(poss.isDisplaying()).isEqualTo("unknown item");
+	}	
+	
+	@Test
 	@DisplayName("a barcoded item worth 1 dollar returns '$1.00'")
 	void test02() {
 		poss.onBarcode("58");
